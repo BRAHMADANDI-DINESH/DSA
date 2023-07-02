@@ -1,0 +1,15 @@
+import sys
+
+
+n = int(input().strip())
+cal = list(map(int, input().strip().split(' ')))
+# your code goes here
+cal.sort()
+cal.reverse()
+
+miles=0
+for i in range(n):
+    cup=cal[i]*(2**i)
+    miles+=cup
+    
+print(miles)
