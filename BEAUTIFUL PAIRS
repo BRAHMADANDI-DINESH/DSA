@@ -1,0 +1,29 @@
+def beautifulPairs(a, b):
+    count = 0
+    freq_a = [0] * 1001
+    freq_b = [0] * 1001
+
+    for num in a:
+        freq_a[num] += 1
+
+    for num in b:
+        freq_b[num] += 1
+
+    for num in range(1001):
+        count += min(freq_a[num], freq_b[num])
+
+    # If count == len(a), we need to change one element in b
+    # to form a beautiful pair
+    if count == len(a):
+        count -= 1
+
+    return count
+
+# Read input
+n = int(input().strip())
+a = list(map(int, input().strip().split()))
+b = list(map(int, input().strip().split()))
+
+# Calculate and print the maximum number of pairwise disjoint beautiful pairs
+result = beautifulPairs(a, b)
+print(result)
